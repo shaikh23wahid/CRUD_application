@@ -1,0 +1,11 @@
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color:blue
+}

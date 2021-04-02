@@ -1,0 +1,40 @@
+<div *ngIf="currentTodo" class="edit-form">
+    <h4>Todo details</h4>
+    <form>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="currentTodo.title" name="title" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="currentTodo.description"
+                name="description" />
+        </div>
+
+        <div class="form-group">
+            <label><strong>Status:</strong></label>
+            {{ currentTodo.published ? "Published" : "Pending" }}
+        </div>
+    </form>
+
+    <button class="badge badge-primary mr-2" *ngIf="currentTodo.published" (click)="updateStatus(false)">
+        UnPublish
+    </button>
+    <button *ngIf="!currentTodo.published" class="badge badge-primary mr-2" (click)="updateStatus(true)">
+        Publish
+    </button>
+
+    <button class="badge badge-danger mr-2" (click)="deleteTodo()">
+        Delete
+    </button>
+
+    <button type="submit" class="badge badge-success" (click)="updateTodo()">
+        Update
+    </button>
+    <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentTodo">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+</div>
